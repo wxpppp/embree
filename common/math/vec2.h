@@ -221,7 +221,7 @@ namespace embree
 {
   template<> __forceinline Vec2<float>::Vec2(const Vec2fa& a) : x(a.x), y(a.y) {}
 
-#if defined(__SSE__)
+#if defined(__SSE__) || defined(__loongarch__)
   template<> __forceinline Vec2<vfloat4>::Vec2(const Vec2fa& a) : x(a.x), y(a.y) {}
 #endif
 

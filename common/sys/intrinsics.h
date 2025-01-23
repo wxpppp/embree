@@ -11,6 +11,8 @@
 
 #if defined(__ARM_NEON)
 #include "../simd/arm/emulation.h"
+#elif defined(__loongarch_lp64)
+#include "../simd/loongarch/sse2lsx.h"
 #else
 #include <immintrin.h>
 #if defined(__EMSCRIPTEN__)

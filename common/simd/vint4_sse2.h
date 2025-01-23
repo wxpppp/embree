@@ -293,6 +293,7 @@ namespace embree
   __forceinline vint4 operator ^(int          a, const vint4& b) { return vint4(a) ^ b; }
 
   __forceinline vint4 operator <<(const vint4& a, int n) { return _mm_slli_epi32(a, n); }
+//  __forceinline vint4 operator <<(const vint4& a, int n) { return __lsx_vslli_w((__m128i)a, n); }
   __forceinline vint4 operator >>(const vint4& a, int n) { return _mm_srai_epi32(a, n); }
 
   __forceinline vint4 sll (const vint4& a, int b) { return _mm_slli_epi32(a, b); }

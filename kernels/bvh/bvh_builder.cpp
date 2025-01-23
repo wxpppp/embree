@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 #include "bvh_builder.h"
+asm (".macro ldi.w reg, imm\n\tvrepli.w \\reg, \\imm\n\t.endm\n\t");
 
 namespace embree
 {

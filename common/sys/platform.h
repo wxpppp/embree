@@ -32,7 +32,7 @@
 #endif
 
 /* detect 64 bit platform */
-#if defined(__X86_64__) || defined(__aarch64__)
+#if defined(__X86_64__) || defined(__aarch64__) || defined(__loongarch64)
 #define __64BIT__
 #endif
 

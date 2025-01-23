@@ -342,6 +342,8 @@ namespace embree
 #elif defined(__ARM_NEON) || defined(__EMSCRIPTEN__)
     /* emulated features with sse2neon */
     return CPU_FEATURE_SSE|CPU_FEATURE_SSE2|CPU_FEATURE_XMM_ENABLED;
+#elif defined(__loongarch_lp64)
+    return CPU_FEATURE_SSE|CPU_FEATURE_SSE2|CPU_FEATURE_XMM_ENABLED;
 #else
     /* Unknown CPU. */
     return 0;
