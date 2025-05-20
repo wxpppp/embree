@@ -36,6 +36,27 @@
 #define _MM_SHUFFLE(fp3, fp2, fp1, fp0) \
 	(((fp3) << 6) | ((fp2) << 4) | ((fp1) << 2) | ((fp0)))
 
+#define _MM_TRANSPOSE4_PS(x0, x1, x2, x3)              \
+do {                                                   \
+    float _t0, _t1, _t2, _t3;                          \
+                                                       \
+    _t0 = (x0)[1]; _t1 = (x0)[2]; _t2 = (x0)[3];       \
+    (x0)[1] = (x1)[0];                                 \
+    (x0)[2] = (x2)[0];                                 \
+    (x0)[3] = (x3)[0];                                 \
+                                                       \
+    (x1)[0] = _t0;                                     \
+    _t0 = (x1)[2]; _t3 = (x1)[3];                      \
+    (x1)[2] = (x2)[1];                                 \
+    (x1)[3] = (x3)[1];                                 \
+                                                       \
+    (x2)[0] = _t1; (x2)[1] = _t0;                      \
+    _t1 = (x2)[3];                                     \
+    (x2)[3] = (x3)[2];                                 \
+                                                       \
+    (x3)[0] = _t2; (x3)[1] = _t3; (x3)[2] = _t1;       \
+} while (0)
+
 /* Rounding mode macros. */
 #define _MM_FROUND_TO_NEAREST_INT 0x00
 #define _MM_FROUND_TO_NEG_INF 0x01
